@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9815E84B2990359800D495FE /* MonthlyReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9815E84A2990359800D495FE /* MonthlyReportTableViewCell.swift */; };
+		982F182529564F9A0062DDEF /* TableViewItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */; };
+		982F182629564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */; };
+		985B2083294CBC5000DA252F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B2082294CBC5000DA252F /* AppDelegate.swift */; };
+		985B2085294CBC5000DA252F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B2084294CBC5000DA252F /* SceneDelegate.swift */; };
+		985B2087294CBC5000DA252F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B2086294CBC5000DA252F /* ViewController.swift */; };
+		985B208D294CBC5000DA252F /* CashFlow_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 985B208B294CBC5000DA252F /* CashFlow_app.xcdatamodeld */; };
+		985B208F294CBC5100DA252F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985B208E294CBC5100DA252F /* Assets.xcassets */; };
+		985B2092294CBC5100DA252F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985B2090294CBC5100DA252F /* LaunchScreen.storyboard */; };
+		987F9EF6298FFA3C00BF128F /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F9EF5298FFA3C00BF128F /* MonthlyReportViewController.swift */; };
+		987F9EF9298FFBA800BF128F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F9EF8298FFBA800BF128F /* Colors.swift */; };
+		98B50997295115C300574AD2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B50996295115C300574AD2 /* CustomTableViewCell.swift */; };
+		98D9C2982954F7F800FF51C0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */; };
+		98D9C2A02954FFF300FF51C0 /* CategoryTableViewItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9C29E2954FFF300FF51C0 /* CategoryTableViewItem+CoreDataClass.swift */; };
+		98D9C2A12954FFF300FF51C0 /* CategoryTableViewItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9C29F2954FFF300FF51C0 /* CategoryTableViewItem+CoreDataProperties.swift */; };
+		98E61A6D295A4F20009E4574 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E61A6C295A4F20009E4574 /* PopUpViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9815E84A2990359800D495FE /* MonthlyReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportTableViewCell.swift; sourceTree = "<group>"; };
+		982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		985B207F294CBC5000DA252F /* CashFlow_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		985B2082294CBC5000DA252F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		985B2084294CBC5000DA252F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		985B2086294CBC5000DA252F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
+		985B208C294CBC5000DA252F /* CashFlow_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CashFlow_app.xcdatamodel; sourceTree = "<group>"; };
+		985B208E294CBC5100DA252F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		985B2091294CBC5100DA252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		985B2093294CBC5100DA252F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		987F9EF5298FFA3C00BF128F /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
+		987F9EF8298FFBA800BF128F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		98B50996295115C300574AD2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		98D9C29E2954FFF300FF51C0 /* CategoryTableViewItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTableViewItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		98D9C29F2954FFF300FF51C0 /* CategoryTableViewItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTableViewItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		98E61A6C295A4F20009E4574 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		985B207C294CBC5000DA252F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		985B2076294CBC5000DA252F = {
+			isa = PBXGroup;
+			children = (
+				985B2081294CBC5000DA252F /* CashFlow_app */,
+				985B2080294CBC5000DA252F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		985B2080294CBC5000DA252F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				985B207F294CBC5000DA252F /* CashFlow_app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		985B2081294CBC5000DA252F /* CashFlow_app */ = {
+			isa = PBXGroup;
+			children = (
+				987F9EF7298FFB8E00BF128F /* Other */,
+				98D9C29D2954FF8A00FF51C0 /* Table view item */,
+				98D9C2962954F7C600FF51C0 /* View Controllers */,
+				98B50998295115D200574AD2 /* Delegates */,
+				985B208E294CBC5100DA252F /* Assets.xcassets */,
+				985B2090294CBC5100DA252F /* LaunchScreen.storyboard */,
+				985B2093294CBC5100DA252F /* Info.plist */,
+				985B208B294CBC5000DA252F /* CashFlow_app.xcdatamodeld */,
+			);
+			path = CashFlow_app;
+			sourceTree = "<group>";
+		};
+		987F9EF7298FFB8E00BF128F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				98B50996295115C300574AD2 /* CustomTableViewCell.swift */,
+				9815E84A2990359800D495FE /* MonthlyReportTableViewCell.swift */,
+				987F9EF8298FFBA800BF128F /* Colors.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		98B50998295115D200574AD2 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				985B2082294CBC5000DA252F /* AppDelegate.swift */,
+				985B2084294CBC5000DA252F /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		98D9C2962954F7C600FF51C0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				985B2086294CBC5000DA252F /* ViewController.swift */,
+				987F9EF5298FFA3C00BF128F /* MonthlyReportViewController.swift */,
+				98E61A6C295A4F20009E4574 /* PopUpViewController.swift */,
+				98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		98D9C29D2954FF8A00FF51C0 /* Table view item */ = {
+			isa = PBXGroup;
+			children = (
+				982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */,
+				982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */,
+				98D9C29E2954FFF300FF51C0 /* CategoryTableViewItem+CoreDataClass.swift */,
+				98D9C29F2954FFF300FF51C0 /* CategoryTableViewItem+CoreDataProperties.swift */,
+			);
+			path = "Table view item";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		985B207E294CBC5000DA252F /* CashFlow_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 985B2096294CBC5100DA252F /* Build configuration list for PBXNativeTarget "CashFlow_app" */;
+			buildPhases = (
+				985B207B294CBC5000DA252F /* Sources */,
+				985B207C294CBC5000DA252F /* Frameworks */,
+				985B207D294CBC5000DA252F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CashFlow_app;
+			productName = CashFlow_app;
+			productReference = 985B207F294CBC5000DA252F /* CashFlow_app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		985B2077294CBC5000DA252F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					985B207E294CBC5000DA252F = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 985B207A294CBC5000DA252F /* Build configuration list for PBXProject "CashFlow_app" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 985B2076294CBC5000DA252F;
+			productRefGroup = 985B2080294CBC5000DA252F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				985B207E294CBC5000DA252F /* CashFlow_app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		985B207D294CBC5000DA252F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				985B2092294CBC5100DA252F /* LaunchScreen.storyboard in Resources */,
+				985B208F294CBC5100DA252F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		985B207B294CBC5000DA252F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98D9C2A12954FFF300FF51C0 /* CategoryTableViewItem+CoreDataProperties.swift in Sources */,
+				985B208D294CBC5000DA252F /* CashFlow_app.xcdatamodeld in Sources */,
+				982F182529564F9A0062DDEF /* TableViewItem+CoreDataClass.swift in Sources */,
+				98E61A6D295A4F20009E4574 /* PopUpViewController.swift in Sources */,
+				985B2087294CBC5000DA252F /* ViewController.swift in Sources */,
+				98B50997295115C300574AD2 /* CustomTableViewCell.swift in Sources */,
+				9815E84B2990359800D495FE /* MonthlyReportTableViewCell.swift in Sources */,
+				987F9EF6298FFA3C00BF128F /* MonthlyReportViewController.swift in Sources */,
+				985B2083294CBC5000DA252F /* AppDelegate.swift in Sources */,
+				987F9EF9298FFBA800BF128F /* Colors.swift in Sources */,
+				98D9C2982954F7F800FF51C0 /* CategoriesViewController.swift in Sources */,
+				985B2085294CBC5000DA252F /* SceneDelegate.swift in Sources */,
+				982F182629564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift in Sources */,
+				98D9C2A02954FFF300FF51C0 /* CategoryTableViewItem+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		985B2090294CBC5100DA252F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				985B2091294CBC5100DA252F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		985B2094294CBC5100DA252F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		985B2095294CBC5100DA252F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		985B2097294CBC5100DA252F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8MDDM9YYC4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CashFlow_app/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cash Flow";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mateo.CashFlow-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		985B2098294CBC5100DA252F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8MDDM9YYC4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CashFlow_app/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cash Flow";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mateo.CashFlow-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		985B207A294CBC5000DA252F /* Build configuration list for PBXProject "CashFlow_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				985B2094294CBC5100DA252F /* Debug */,
+				985B2095294CBC5100DA252F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		985B2096294CBC5100DA252F /* Build configuration list for PBXNativeTarget "CashFlow_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				985B2097294CBC5100DA252F /* Debug */,
+				985B2098294CBC5100DA252F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		985B208B294CBC5000DA252F /* CashFlow_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				985B208C294CBC5000DA252F /* CashFlow_app.xcdatamodel */,
+			);
+			currentVersion = 985B208C294CBC5000DA252F /* CashFlow_app.xcdatamodel */;
+			path = CashFlow_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 985B2077294CBC5000DA252F /* Project object */;
+}
