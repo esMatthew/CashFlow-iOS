@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9815E84B2990359800D495FE /* MonthlyReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9815E84A2990359800D495FE /* MonthlyReportTableViewCell.swift */; };
 		982F182529564F9A0062DDEF /* TableViewItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */; };
 		982F182629564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */; };
 		985B2083294CBC5000DA252F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B2082294CBC5000DA252F /* AppDelegate.swift */; };
@@ -16,7 +15,6 @@
 		985B208D294CBC5000DA252F /* CashFlow_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 985B208B294CBC5000DA252F /* CashFlow_app.xcdatamodeld */; };
 		985B208F294CBC5100DA252F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985B208E294CBC5100DA252F /* Assets.xcassets */; };
 		985B2092294CBC5100DA252F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985B2090294CBC5100DA252F /* LaunchScreen.storyboard */; };
-		987F9EF6298FFA3C00BF128F /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F9EF5298FFA3C00BF128F /* MonthlyReportViewController.swift */; };
 		987F9EF9298FFBA800BF128F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F9EF8298FFBA800BF128F /* Colors.swift */; };
 		98B50997295115C300574AD2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B50996295115C300574AD2 /* CustomTableViewCell.swift */; };
 		98D9C2982954F7F800FF51C0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */; };
@@ -26,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9815E84A2990359800D495FE /* MonthlyReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportTableViewCell.swift; sourceTree = "<group>"; };
 		982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		985B207F294CBC5000DA252F /* CashFlow_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +34,6 @@
 		985B208E294CBC5100DA252F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		985B2091294CBC5100DA252F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		985B2093294CBC5100DA252F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		987F9EF5298FFA3C00BF128F /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
 		987F9EF8298FFBA800BF128F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		98B50996295115C300574AD2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				98B50996295115C300574AD2 /* CustomTableViewCell.swift */,
-				9815E84A2990359800D495FE /* MonthlyReportTableViewCell.swift */,
 				987F9EF8298FFBA800BF128F /* Colors.swift */,
 			);
 			path = Other;
@@ -111,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				985B2086294CBC5000DA252F /* ViewController.swift */,
-				987F9EF5298FFA3C00BF128F /* MonthlyReportViewController.swift */,
 				98E61A6C295A4F20009E4574 /* PopUpViewController.swift */,
 				98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */,
 			);
@@ -205,8 +199,6 @@
 				98E61A6D295A4F20009E4574 /* PopUpViewController.swift in Sources */,
 				985B2087294CBC5000DA252F /* ViewController.swift in Sources */,
 				98B50997295115C300574AD2 /* CustomTableViewCell.swift in Sources */,
-				9815E84B2990359800D495FE /* MonthlyReportTableViewCell.swift in Sources */,
-				987F9EF6298FFA3C00BF128F /* MonthlyReportViewController.swift in Sources */,
 				985B2083294CBC5000DA252F /* AppDelegate.swift in Sources */,
 				987F9EF9298FFBA800BF128F /* Colors.swift in Sources */,
 				98D9C2982954F7F800FF51C0 /* CategoriesViewController.swift in Sources */,
