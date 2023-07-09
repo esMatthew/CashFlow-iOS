@@ -333,6 +333,12 @@ extension MainViewController {
             CatVC.title = "Categories"
             self.navigationController?.pushViewController(CatVC, animated: true)
         }), for: .touchUpInside)
+        
+        monthlyReportButton.addAction(UIAction(handler: { _ in
+            let MonVC = MonthlyReportViewController()
+            MonVC.title = "Monthly Report"
+            self.navigationController?.pushViewController(MonVC, animated: true)
+        }), for: .touchUpInside)
     }
     
     private func showFirstTimeAlert() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9800548D2A5A4F590002D52A /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9800548C2A5A4F590002D52A /* MonthlyReportViewController.swift */; };
+		9800548F2A5A53B20002D52A /* MonthlyReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9800548E2A5A53B20002D52A /* MonthlyReportTableViewCell.swift */; };
 		982F182529564F9A0062DDEF /* TableViewItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */; };
 		982F182629564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */; };
 		985B2083294CBC5000DA252F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985B2082294CBC5000DA252F /* AppDelegate.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9800548C2A5A4F590002D52A /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
+		9800548E2A5A53B20002D52A /* MonthlyReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyReportTableViewCell.swift; sourceTree = "<group>"; };
 		982F182329564F9A0062DDEF /* TableViewItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		982F182429564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		985B207F294CBC5000DA252F /* CashFlow_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CashFlow_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,7 @@
 			children = (
 				98B50996295115C300574AD2 /* CustomTableViewCell.swift */,
 				987F9EF8298FFBA800BF128F /* Colors.swift */,
+				9800548E2A5A53B20002D52A /* MonthlyReportTableViewCell.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 				985B2086294CBC5000DA252F /* ViewController.swift */,
 				98E61A6C295A4F20009E4574 /* PopUpViewController.swift */,
 				98D9C2972954F7F800FF51C0 /* CategoriesViewController.swift */,
+				9800548C2A5A4F590002D52A /* MonthlyReportViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -199,11 +205,13 @@
 				98E61A6D295A4F20009E4574 /* PopUpViewController.swift in Sources */,
 				985B2087294CBC5000DA252F /* ViewController.swift in Sources */,
 				98B50997295115C300574AD2 /* CustomTableViewCell.swift in Sources */,
+				9800548F2A5A53B20002D52A /* MonthlyReportTableViewCell.swift in Sources */,
 				985B2083294CBC5000DA252F /* AppDelegate.swift in Sources */,
 				987F9EF9298FFBA800BF128F /* Colors.swift in Sources */,
 				98D9C2982954F7F800FF51C0 /* CategoriesViewController.swift in Sources */,
 				985B2085294CBC5000DA252F /* SceneDelegate.swift in Sources */,
 				982F182629564F9A0062DDEF /* TableViewItem+CoreDataProperties.swift in Sources */,
+				9800548D2A5A4F590002D52A /* MonthlyReportViewController.swift in Sources */,
 				98D9C2A02954FFF300FF51C0 /* CategoryTableViewItem+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
