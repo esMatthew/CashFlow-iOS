@@ -13,7 +13,7 @@ class MonthlyReportViewController: UIViewController {
     var categories: [CategoryTableViewItem] = [CategoryTableViewItem]()
     var models    : [TableViewItem]         = [TableViewItem]()
     
-    let monthNames: [String] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Dicember"]
+    var VPC: [Int]?
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -34,6 +34,8 @@ class MonthlyReportViewController: UIViewController {
         view.addSubview(tableView)
         
         getAllItems()
+        
+        getAmountOfMoneySpentPerCategory()
     }
     
     override func viewDidLayoutSubviews() {
@@ -54,11 +56,42 @@ class MonthlyReportViewController: UIViewController {
             print(FetchingError.couldNotFetchData.localizedDescription)
         }
     }
+    
+    private func getAmountOfMoneySpentPerCategory() {
+        VPC = [Int](repeating: 0, count: categories.count)
+        
+        var buffer = 0
+        var sum    = 0
+        for i in 0...categories.count - 1 {
+            for j in 0...models.count - 1 {
+                if(buffer != i) {
+                    sum = 0
+                    buffer = i
+                }
+                
+                if(models[j].transferType == categories[i].transferType) {
+                    sum += Int(models[j].value ?? "0") ?? 0
+                }
+            }
+            VPC?[i] = sum
+        }
+    }
+    
+    private func formatNumber(number: Int) -> String {
+        let formatter = NumberFormatter()
+        
+        formatter.numberStyle       = .currency
+        formatter.currencySymbol    = "$"
+        formatter.groupingSeparator = ","
+        formatter.groupingSize      = 3
+        
+        return formatter.string(from: number as NSNumber) ?? ""
+    }
 }
 
 extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,26 +99,33 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return monthNames[section]
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: now)
+        
+        return nameOfMonth
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // First cell returns a comparison between the total initial amount of money in the month, and the end of it
-        // Next cells return the amount of money spent in a certain category
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MonthlyReportTableViewCell.identifier) as? MonthlyReportTableViewCell else { return UITableViewCell() }
+        let category = categories[indexPath.row]
+        let value    = VPC?[indexPath.row]
         
-        cell.categoryLabel.text = "Category"
-        cell.valueLabel.text = "Value"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MonthlyReportTableViewCell.identifier, for: indexPath) as? MonthlyReportTableViewCell else { return UITableViewCell() }
+        
+        cell.categoryLabel.text = category.transferType
+        cell.valueLabel.text    = formatNumber(number: value ?? 0)
         
         if(traitCollection.userInterfaceStyle == .dark) {
             cell.backgroundColor         = Colors.darkTableView
             cell.categoryLabel.textColor = Colors.darkTextLabel
-            cell.valueLabel.textColor    = Colors.darkTextLabel
+            cell.valueLabel.textColor    = .systemRed
         }
         else {
             cell.backgroundColor         = Colors.lightTableView
             cell.categoryLabel.textColor = Colors.lightTextLabel
-            cell.valueLabel.textColor    = Colors.lightTextLabel
+            cell.valueLabel.textColor    = .systemRed
         }
         
         return cell

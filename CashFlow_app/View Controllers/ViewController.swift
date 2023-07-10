@@ -5,6 +5,8 @@
 //  Created by Mate Escobar on 16/12/22.
 //
 
+// TODO: Restart Program each time that a new month begins -
+
 import UIKit
 
 enum FetchingError: Error {
@@ -185,7 +187,7 @@ extension MainViewController {
         MainViewController.TBWidth = incomeTableView.bounds.width
     }
     
-    func applyConstraints() {
+    private func applyConstraints() {
         let titleLabelConstraints = [
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)

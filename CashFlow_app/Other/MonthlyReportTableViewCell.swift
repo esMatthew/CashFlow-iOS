@@ -10,7 +10,7 @@ import UIKit
 class MonthlyReportTableViewCell: UITableViewCell {
     static let identifier = "MonthlyReportTableViewCellIdentifier"
     
-    public var categoryLabel: UILabel {
+    public var categoryLabel: UILabel = {
         let label = UILabel()
         
         label.text          = "Test"
@@ -19,9 +19,9 @@ class MonthlyReportTableViewCell: UITableViewCell {
         label.textColor     = Colors.lightTextLabel
         
         return label
-    }
+    }()
     
-    public var valueLabel: UILabel {
+    public var valueLabel: UILabel = {
         let label = UILabel()
         
         label.text          = "Test"
@@ -30,7 +30,7 @@ class MonthlyReportTableViewCell: UITableViewCell {
         label.textColor     = Colors.lightTextLabel
         
         return label
-    }
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super .init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,7 +46,7 @@ class MonthlyReportTableViewCell: UITableViewCell {
     }
     
     private func applyConstraints() {
-        categoryLabel.frame = CGRect(x: 0, y: contentView.bounds.minY, width: contentView.bounds.width / 2, height: contentView.bounds.height)
-        valueLabel.frame = CGRect(x: contentView.bounds.width / 2, y: contentView.bounds.minY, width: contentView.bounds.width / 2, height: contentView.bounds.height)
+        categoryLabel.frame = CGRect(x: 0, y: contentView.bounds.minY, width: (contentView.bounds.width / 2) + 20, height: contentView.bounds.height)
+        valueLabel.frame = CGRect(x: contentView.bounds.width / 2, y: contentView.bounds.minY, width: (contentView.bounds.width / 2) + 20, height: contentView.bounds.height)
     }
 }
