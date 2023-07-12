@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private var models         : [TableViewItem] = [TableViewItem]()
-    private var totalBalance   : Int             = 0
+    static var totalBalance    : Int             = 0
     private var textValueBuffer: String?
     private var dateValueBuffer: String?
     
@@ -406,13 +406,13 @@ extension MainViewController {
         var formattedString = ""
         
         if(isIncome) {
-            totalBalance += value
-            formattedString = formatNumber(number: totalBalance)
+            MainViewController.totalBalance += value
+            formattedString = formatNumber(number: MainViewController.totalBalance)
             totalBalanceLabel.text = "Total balance: \(formattedString )"
         }
         else {
-            totalBalance -= value
-            formattedString = formatNumber(number: totalBalance)
+            MainViewController.totalBalance -= value
+            formattedString = formatNumber(number: MainViewController.totalBalance)
             totalBalanceLabel.text = "Total balance: \(formattedString )"
         }
     }
@@ -449,7 +449,7 @@ extension MainViewController {
         newItem.value        = value
         newItem.date         = date
         newItem.isIncome     = isIncome
-        newItem.transferType = transferType ?? ""
+        newItem.transferType = transferType ?? "nil"
         
         do {
             try context.save()
