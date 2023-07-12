@@ -36,7 +36,7 @@ class MonthlyReportViewController: UIViewController {
         getCategoryString()
         getAmountOfMoneySpentPerCategory()
         
-        tableView.delegate = self
+        tableView.delegate   = self
         tableView.dataSource = self
         
         view.addSubview(tableView)
@@ -80,7 +80,7 @@ class MonthlyReportViewController: UIViewController {
         for i in 0...(SPC?.count ?? 0) - 1 {
             for j in 0...models.count - 1 {
                 if(buffer != i) {
-                    sum = 0
+                    sum    = 0
                     buffer = i
                 }
                 
@@ -117,10 +117,10 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let now = Date()
-        let dateFormatter = DateFormatter()
+        let now                  = Date()
+        let dateFormatter        = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
-        let nameOfMonth = dateFormatter.string(from: now)
+        let nameOfMonth          = dateFormatter.string(from: now)
         
         return nameOfMonth
     }
@@ -133,8 +133,8 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MonthlyReportTableViewCell.identifier, for: indexPath) as? MonthlyReportTableViewCell else { return UITableViewCell() }
         
         if(indexPath.row == 0) {
-            cell.categoryLabel.text = SPC?[0]
-            cell.valueLabel.text = formatNumber(number: (Int(models[0].value ?? "0") ?? 0))
+            cell.categoryLabel.text   = SPC?[0]
+            cell.valueLabel.text      = formatNumber(number: (Int(models[0].value ?? "0") ?? 0))
             cell.valueLabel.textColor = .systemGreen
             
             if(traitCollection.userInterfaceStyle == .dark) {
@@ -147,8 +147,8 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
             }
         }
         else if(indexPath.row == 1) {
-            cell.categoryLabel.text = "Total Expenses"
-            cell.valueLabel.text    = formatNumber(number: (Int(models[0].value ?? "0") ?? 0) - MainViewController.totalBalance + (income - (Int(models[0].value ?? "0") ?? 0)))
+            cell.categoryLabel.text   = "Total Expenses"
+            cell.valueLabel.text      = formatNumber(number: (Int(models[0].value ?? "0") ?? 0) - MainViewController.totalBalance + (income - (Int(models[0].value ?? "0") ?? 0)))
             cell.valueLabel.textColor = .systemRed
             
             if(traitCollection.userInterfaceStyle == .dark) {
