@@ -10,13 +10,14 @@ import UIKit
 class MonthlyReportViewController: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var categories: [CategoryTableViewItem] = [CategoryTableViewItem]()
-    var models    : [TableViewItem]         = [TableViewItem]()
+    var categories: [CategoryTableViewItem]      = [CategoryTableViewItem]()
+    var models    : [TableViewItem]              = [TableViewItem]()
+    var cells     : [MonthlyReportTableViewItem] = [MonthlyReportTableViewItem]()
+    
+    var sections: [[MonthlyReportTableViewItem]] = [[MonthlyReportTableViewItem]()]
     
     var VPC: [Int]?
     var SPC: [String]?
-    
-    var income: Int = 0
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -51,6 +52,7 @@ class MonthlyReportViewController: UIViewController {
         do {
             models     = try context.fetch(TableViewItem.fetchRequest())
             categories = try context.fetch(CategoryTableViewItem.fetchRequest())
+            cells      = try context.fetch(MonthlyReportTableViewItem.fetchRequest())
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -87,9 +89,6 @@ class MonthlyReportViewController: UIViewController {
                 if(models[j].transferType == SPC?[i]) {
                     sum += Int(models[j].value ?? "0") ?? 0
                 }
-                else if(models[j].transferType == "nil" && i == 0) {
-                    income += Int(models[j].value ?? "0") ?? 0
-                }
             }
             VPC?[i] = sum
         }
@@ -109,7 +108,7 @@ class MonthlyReportViewController: UIViewController {
 
 extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return Calendar.current.component(.month, from: Date())
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -117,16 +116,39 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let now                  = Date()
-        let dateFormatter        = DateFormatter()
-        dateFormatter.dateFormat = "LLLL"
-        let nameOfMonth          = dateFormatter.string(from: now)
-        
-        return nameOfMonth
+        switch section {
+            case 0:
+                return "January"
+            case 1:
+                return "February"
+            case 2:
+                return "March"
+            case 3:
+                return "April"
+            case 4:
+                return "May"
+            case 5:
+                return "June"
+            case 6:
+                return "July"
+            case 7:
+                return "August"
+            case 8:
+                return "September"
+            case 9:
+                return "October"
+            case 10:
+                return "November"
+            case 11:
+                return "December"
+            default:
+                return "Error"
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // First cell returns a comparison between the total initial amount of money in the month, and the end of it
+        
         let category = SPC?[indexPath.row]
         let value    = VPC?[indexPath.row]
         
@@ -147,9 +169,9 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
             }
         }
         else if(indexPath.row == 1) {
-            cell.categoryLabel.text   = "Total Expenses"
-            cell.valueLabel.text      = formatNumber(number: (Int(models[0].value ?? "0") ?? 0) - MainViewController.totalBalance + (income - (Int(models[0].value ?? "0") ?? 0)))
-            cell.valueLabel.textColor = .systemRed
+            cell.categoryLabel.text   = "Final Balance"
+            cell.valueLabel.text      = formatNumber(number: MainViewController.totalBalance)
+            cell.valueLabel.textColor = .systemGreen
             
             if(traitCollection.userInterfaceStyle == .dark) {
                 cell.backgroundColor         = Colors.darkTableView

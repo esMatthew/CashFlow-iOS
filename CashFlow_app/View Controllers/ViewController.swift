@@ -129,11 +129,8 @@ extension MainViewController {
         
         getAllItems()
         
-        if(models.isEmpty) {
-            DispatchQueue.main.async {
-                self.showFirstTimeAlert()
-            }
-        }
+        let currentMonth = getMonthName(month: Date())
+        let pastMonth    = getMonthName(month: models[models.endIndex - 1].date ?? Date())
         
         var TB: Int = 0
         for model in models {
@@ -145,6 +142,18 @@ extension MainViewController {
             }
         }
         modifyTotalBalance(value: TB, isIncome: true)
+        
+        if(!models.isEmpty && currentMonth != pastMonth) {
+            for model in models {
+                deleteItem(item: model)
+            }
+        }
+        
+        if(models.isEmpty) {
+            DispatchQueue.main.async {
+                self.showFirstTimeAlert()
+            }
+        }
         
         applyConstraints()
         
@@ -341,6 +350,14 @@ extension MainViewController {
             MonVC.title = "Monthly Report"
             self.navigationController?.pushViewController(MonVC, animated: true)
         }), for: .touchUpInside)
+    }
+    
+    private func getMonthName(month: Date) -> String {
+        let dateFormatter        = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth          = dateFormatter.string(from: month)
+        
+        return nameOfMonth
     }
     
     private func showFirstTimeAlert() {

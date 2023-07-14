@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CategoryTableViewItem" representedClassName="CategoryTableViewItem" syncable="YES">
         <attribute name="transferType" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MonthlyReportTableViewItem" representedClassName="MonthlyReportTableViewItem" syncable="YES">
+        <attribute name="transferType" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
     </entity>
     <entity name="TableViewItem" representedClassName="TableViewItem" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
