@@ -382,7 +382,7 @@ extension MainViewController {
                 }), for: UIControl.Event.valueChanged)
                 
                 field.inputView   = datePicker
-                field.text      = self.formatDate(date: Date())
+                field.text        = self.formatDate(date: Date())
             }
             
             alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
