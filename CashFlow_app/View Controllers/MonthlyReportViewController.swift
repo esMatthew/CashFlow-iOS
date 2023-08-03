@@ -19,6 +19,8 @@ class MonthlyReportViewController: UIViewController {
     var VPC: [Int]?
     var SPC: [String]?
     
+    // Test
+    
     var income: Int = 0
     
     let tableView: UITableView = {
