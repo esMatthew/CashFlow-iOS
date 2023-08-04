@@ -7,6 +7,8 @@
 
 import UIKit
 
+// TODO: Fill the sections BEFORE the current month by saving the monthly reports at the end of each month.
+
 class MonthlyReportViewController: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -18,8 +20,6 @@ class MonthlyReportViewController: UIViewController {
     
     var VPC: [Int]?
     var SPC: [String]?
-    
-    // Test
     
     var income: Int = 0
     
@@ -157,39 +157,46 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // First cell returns a comparison between the total initial amount of money in the month, and the end of it
         
+        let currentMonth = Calendar.current.component(.month, from: Date())
+        
         let category = SPC?[indexPath.row]
         let value    = VPC?[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MonthlyReportTableViewCell.identifier, for: indexPath) as? MonthlyReportTableViewCell else { return UITableViewCell() }
         
-        if(indexPath.row == 0) {
-            cell.categoryLabel.text   = SPC?[0]
-            cell.valueLabel.text      = formatNumber(number: (Int(models[0].value ?? "0") ?? 0))
-            cell.valueLabel.textColor = .systemGreen
-        }
-        else if(indexPath.row == 1) {
-            cell.categoryLabel.text   = "Final Balance"
-            cell.valueLabel.text      = formatNumber(number: MainViewController.totalBalance)
-            cell.valueLabel.textColor = .systemGreen
-        }
-        else if(indexPath.row == 2) {
-            cell.categoryLabel.text   = "Total Income"
-            cell.valueLabel.text      = formatNumber(number: income - (Int(models[0].value ?? "0") ?? 0))
-            cell.valueLabel.textColor = .systemGreen
+        if(indexPath.section == currentMonth - 1) {
+            if(indexPath.row == 0) {
+                cell.categoryLabel.text   = SPC?[0]
+                cell.valueLabel.text      = formatNumber(number: (Int(models[0].value ?? "0") ?? 0))
+                cell.valueLabel.textColor = .systemGreen
+            }
+            else if(indexPath.row == 1) {
+                cell.categoryLabel.text   = "Final Balance"
+                cell.valueLabel.text      = formatNumber(number: MainViewController.totalBalance)
+                cell.valueLabel.textColor = .systemGreen
+            }
+            else if(indexPath.row == 2) {
+                cell.categoryLabel.text   = "Total Income"
+                cell.valueLabel.text      = formatNumber(number: income - (Int(models[0].value ?? "0") ?? 0))
+                cell.valueLabel.textColor = .systemGreen
+            }
+            else {
+                cell.categoryLabel.text   = category
+                cell.valueLabel.text      = formatNumber(number: value ?? 0)
+                cell.valueLabel.textColor = .systemRed
+            }
+            
+            if(traitCollection.userInterfaceStyle == .dark) {
+                cell.backgroundColor         = Colors.darkTableView
+                cell.categoryLabel.textColor = Colors.darkTextLabel
+            }
+            else {
+                cell.backgroundColor         = Colors.lightTableView
+                cell.categoryLabel.textColor = Colors.lightTextLabel
+            }
         }
         else {
-            cell.categoryLabel.text   = category
-            cell.valueLabel.text      = formatNumber(number: value ?? 0)
-            cell.valueLabel.textColor = .systemRed
-        }
-        
-        if(traitCollection.userInterfaceStyle == .dark) {
-            cell.backgroundColor         = Colors.darkTableView
-            cell.categoryLabel.textColor = Colors.darkTextLabel
-        }
-        else {
-            cell.backgroundColor         = Colors.lightTableView
-            cell.categoryLabel.textColor = Colors.lightTextLabel
+            cell.categoryLabel.text = "Test"
         }
         
         return cell

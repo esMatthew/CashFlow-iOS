@@ -5,8 +5,6 @@
 //  Created by Mate Escobar on 16/12/22.
 //
 
-// TODO: Restart Program each time that a new month begins -
-
 import UIKit
 
 enum FetchingError: Error {
@@ -129,8 +127,8 @@ extension MainViewController {
         
         getAllItems()
         
-        let currentMonth = getMonthName(month: Date())
-        let pastMonth    = getMonthName(month: models[models.endIndex - 1].date ?? Date())
+        let currentMonth = Date()
+        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentMonth)! // Next date (1 day later)
         
         var TB: Int = 0
         for model in models {
@@ -143,7 +141,7 @@ extension MainViewController {
         }
         modifyTotalBalance(value: TB, isIncome: true)
         
-        if(!models.isEmpty && currentMonth != pastMonth) {
+        if(!models.isEmpty && isTransitioningToNewMonth(from: currentMonth, to: nextDate)) {
             for model in models {
                 deleteItem(item: model)
             }
@@ -194,6 +192,14 @@ extension MainViewController {
         incomeTableView.frame = CGRect(x: Int(view.bounds.minX) + 20, y: Int(view.bounds.minY) + Int(totalBalanceLabel.frame.maxY) + 20, width: Int(view.bounds.width) - 40, height: Int(view.bounds.maxY - totalBalanceLabel.frame.maxY) - 100)
         
         MainViewController.TBWidth = incomeTableView.bounds.width
+    }
+    
+    func isTransitioningToNewMonth(from fromDate: Date, to toDate: Date) -> Bool {
+        let calendar = Calendar.current
+        let fromComponents = calendar.dateComponents([.year, .month], from: fromDate)
+        let toComponents = calendar.dateComponents([.year, .month], from: toDate)
+        
+        return fromComponents.month != toComponents.month
     }
     
     private func applyConstraints() {
