@@ -2,7 +2,7 @@
 //  MonthlyReportTableViewItem+CoreDataClass.swift
 //  CashFlow_app
 //
-//  Created by Mate Escobar on 13/07/23.
+//  Created by Mate Escobar on 5/08/23.
 //
 //
 

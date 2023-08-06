@@ -10,18 +10,6 @@ import UIKit
 // TODO: Fill the sections BEFORE the current month by saving the monthly reports at the end of each month.
 
 class MonthlyReportViewController: UIViewController {
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var categories: [CategoryTableViewItem]      = [CategoryTableViewItem]()
-    var models    : [TableViewItem]              = [TableViewItem]()
-    var cells     : [MonthlyReportTableViewItem] = [MonthlyReportTableViewItem]()
-    
-    var sections: [[MonthlyReportTableViewItem]] = [[MonthlyReportTableViewItem]()]
-    
-    var VPC: [Int]?
-    var SPC: [String]?
-    
-    var income: Int = 0
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -36,11 +24,6 @@ class MonthlyReportViewController: UIViewController {
         
         view.backgroundColor = Colors.lightBackground
         
-        getAllItems()
-        
-        getCategoryString()
-        getAmountOfMoneySpentPerCategory()
-        
         tableView.delegate   = self
         tableView.dataSource = self
         
@@ -51,56 +34,7 @@ class MonthlyReportViewController: UIViewController {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
-    
-    func getAllItems() {
-        do {
-            models     = try context.fetch(TableViewItem.fetchRequest())
-            categories = try context.fetch(CategoryTableViewItem.fetchRequest())
-            cells      = try context.fetch(MonthlyReportTableViewItem.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        catch {
-            print(FetchingError.couldNotFetchData.localizedDescription)
-        }
-    }
-    
-    private func getCategoryString() {
-        SPC = [String](repeating: "0", count: categories.count)
-        
-        for i in 0...categories.count - 1 {
-            SPC?[i] = categories[i].transferType ?? "Unkown"
-        }
-        
-        SPC?.insert("Initial Balance", at: 0)
-        SPC?.insert("Total balance", at: 1)
-        SPC?.insert("Total Income", at: 2)
-    }
-    
-    private func getAmountOfMoneySpentPerCategory() {
-        VPC = [Int](repeating: 0, count: SPC?.count ?? 1)
-        
-        var buffer = 0
-        var sum    = 0
-        for i in 0...(SPC?.count ?? 0) - 1 {
-            for j in 0...models.count - 1 {
-                if(buffer != i) {
-                    sum    = 0
-                    buffer = i
-                }
-                
-                if(models[j].transferType == SPC?[i]) {
-                    sum += Int(models[j].value ?? "0") ?? 0
-                }
-                else if(models[j].transferType == "nil" && i == 0) {
-                    income += Int(models[j].value ?? "0") ?? 0
-                }
-            }
-            VPC?[i] = sum
-        }
-    }
+
     
     private func formatNumber(number: Int) -> String {
         let formatter = NumberFormatter()
@@ -116,11 +50,11 @@ class MonthlyReportViewController: UIViewController {
 
 extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Calendar.current.component(.month, from: Date())
+        return 12
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SPC?.count ?? 2
+        return 5
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -157,47 +91,10 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // First cell returns a comparison between the total initial amount of money in the month, and the end of it
         
-        let currentMonth = Calendar.current.component(.month, from: Date())
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MonthlyReportTableViewCell.identifier) as? MonthlyReportTableViewCell else { return UITableViewCell() }
         
-        let category = SPC?[indexPath.row]
-        let value    = VPC?[indexPath.row]
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MonthlyReportTableViewCell.identifier, for: indexPath) as? MonthlyReportTableViewCell else { return UITableViewCell() }
-        
-        if(indexPath.section == currentMonth - 1) {
-            if(indexPath.row == 0) {
-                cell.categoryLabel.text   = SPC?[0]
-                cell.valueLabel.text      = formatNumber(number: (Int(models[0].value ?? "0") ?? 0))
-                cell.valueLabel.textColor = .systemGreen
-            }
-            else if(indexPath.row == 1) {
-                cell.categoryLabel.text   = "Final Balance"
-                cell.valueLabel.text      = formatNumber(number: MainViewController.totalBalance)
-                cell.valueLabel.textColor = .systemGreen
-            }
-            else if(indexPath.row == 2) {
-                cell.categoryLabel.text   = "Total Income"
-                cell.valueLabel.text      = formatNumber(number: income - (Int(models[0].value ?? "0") ?? 0))
-                cell.valueLabel.textColor = .systemGreen
-            }
-            else {
-                cell.categoryLabel.text   = category
-                cell.valueLabel.text      = formatNumber(number: value ?? 0)
-                cell.valueLabel.textColor = .systemRed
-            }
-            
-            if(traitCollection.userInterfaceStyle == .dark) {
-                cell.backgroundColor         = Colors.darkTableView
-                cell.categoryLabel.textColor = Colors.darkTextLabel
-            }
-            else {
-                cell.backgroundColor         = Colors.lightTableView
-                cell.categoryLabel.textColor = Colors.lightTextLabel
-            }
-        }
-        else {
-            cell.categoryLabel.text = "Test"
-        }
+        cell.valueLabel.text = "Test"
+        cell.categoryLabel.text = "Test"
         
         return cell
     }

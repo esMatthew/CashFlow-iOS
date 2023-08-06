@@ -18,13 +18,15 @@ enum FetchingError: Error {
 class MainViewController: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private var models         : [TableViewItem] = [TableViewItem]()
-    static var totalBalance    : Int             = 0
+    private var models: [TableViewItem] = [TableViewItem]()
+
     private var textValueBuffer: String?
     private var dateValueBuffer: String?
     
+    static var monthIsChanging  : Bool                 = false
     static var CategorySelection: ((String?)->(Void))? = nil
     static var TBWidth          : CGFloat              = 0
+    static var totalBalance     : Int                  = 0
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -127,8 +129,8 @@ extension MainViewController {
         
         getAllItems()
         
-        let currentMonth = Date()
-        let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentMonth)! // Next date (1 day later)
+        //let currentMonth = Date()
+        //let nextDate = Calendar.current.date(byAdding: .day, value: 1, to: currentMonth)! // Next date (1 day later)
         
         var TB: Int = 0
         for model in models {
@@ -141,11 +143,13 @@ extension MainViewController {
         }
         modifyTotalBalance(value: TB, isIncome: true)
         
+        /*
         if(!models.isEmpty && isTransitioningToNewMonth(from: currentMonth, to: nextDate)) {
             for model in models {
                 deleteItem(item: model)
             }
         }
+         */
         
         if(models.isEmpty) {
             DispatchQueue.main.async {

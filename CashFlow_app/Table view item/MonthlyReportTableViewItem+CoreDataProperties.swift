@@ -2,7 +2,7 @@
 //  MonthlyReportTableViewItem+CoreDataProperties.swift
 //  CashFlow_app
 //
-//  Created by Mate Escobar on 13/07/23.
+//  Created by Mate Escobar on 5/08/23.
 //
 //
 
@@ -18,6 +18,7 @@ extension MonthlyReportTableViewItem {
 
     @NSManaged public var transferType: String?
     @NSManaged public var value: String?
+    @NSManaged public var date: Date?
 
 }
 

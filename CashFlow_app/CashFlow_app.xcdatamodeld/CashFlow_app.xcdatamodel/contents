@@ -4,6 +4,7 @@
         <attribute name="transferType" optional="YES" attributeType="String"/>
     </entity>
     <entity name="MonthlyReportTableViewItem" representedClassName="MonthlyReportTableViewItem" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="transferType" optional="YES" attributeType="String"/>
         <attribute name="value" optional="YES" attributeType="String"/>
     </entity>
