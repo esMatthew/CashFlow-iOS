@@ -282,7 +282,7 @@ extension MainViewController {
                 let date = self?.deFormatDate(dateText: dateText)
                 
                 self?.modifyTotalBalance(value: Int(value) ?? 0, isIncome: true)
-                self?.createItem(value: value, isIncome: true, date: date ?? Date(), transferType: nil)
+                self?.createItem(value: value, isIncome: true, date: date ?? Date(), transferType: "Income")
             }))
             
             self.present(alert, animated: true)
@@ -406,7 +406,7 @@ extension MainViewController {
                 formatter.dateFormat = "dd/MM/yy"
                 let date             = formatter.date(from: dateText)
                 
-                self.createItem(value: value, isIncome: true, date: date ?? Date(), transferType: nil)
+                self.createItem(value: value, isIncome: true, date: date ?? Date(), transferType: "Initial Balance")
             }))
             
             self.present(alert, animated: true)
@@ -574,19 +574,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.textColor = Colors.lightTextLabel
         }
         
+        
         if(model.isIncome) {
             cell.valueLabel.textColor = .systemGreen
-            if(indexPath.row == 0) {
-                cell.typeLabel.text = "Initial Balance"
-            }
-            else {
-                cell.typeLabel.text = "Income"
-            }
         }
         else {
             cell.valueLabel.textColor = .systemRed
-            cell.typeLabel.text       = model.transferType
         }
+        
+        cell.typeLabel.text       = model.transferType
         
         return cell
     }

@@ -10,6 +10,11 @@ import UIKit
 // TODO: Fill the sections BEFORE the current month by saving the monthly reports at the end of each month.
 
 class MonthlyReportViewController: UIViewController {
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    private var models: [TableViewItem] = [TableViewItem]()
+    
+    private var modelsPerMonth: [[TableViewItem]] = [[TableViewItem]]()
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -24,6 +29,9 @@ class MonthlyReportViewController: UIViewController {
         
         view.backgroundColor = Colors.lightBackground
         
+        getAllItems()
+        sortByMonth()
+        
         tableView.delegate   = self
         tableView.dataSource = self
         
@@ -35,6 +43,36 @@ class MonthlyReportViewController: UIViewController {
         tableView.frame = view.bounds
     }
 
+    func getAllItems() {
+        do {
+            models = try context.fetch(TableViewItem.fetchRequest())
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch {
+            print(FetchingError.couldNotFetchData.localizedDescription)
+        }
+    }
+    
+    private func sortByMonth() {
+        let currentMonth = Calendar.current.component(.month, from: Date())
+        
+        for _ in 0...currentMonth - 1 {
+            modelsPerMonth.append([TableViewItem]())
+        }
+        
+        for i in 0...modelsPerMonth.count - 1 {
+            for j in 0...models.count - 1 {
+                let modelDate = Calendar.current.component(.month, from: models[j].date ?? Date())
+                
+                if modelDate == i + 1 {
+                    modelsPerMonth[i].append(models[j])
+                }
+            }
+        }
+    }
     
     private func formatNumber(number: Int) -> String {
         let formatter = NumberFormatter()
@@ -50,7 +88,7 @@ class MonthlyReportViewController: UIViewController {
 
 extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return Calendar.current.component(.month, from: Date())
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,34 +96,7 @@ extension MonthlyReportViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-            case 0:
-                return "January"
-            case 1:
-                return "February"
-            case 2:
-                return "March"
-            case 3:
-                return "April"
-            case 4:
-                return "May"
-            case 5:
-                return "June"
-            case 6:
-                return "July"
-            case 7:
-                return "August"
-            case 8:
-                return "September"
-            case 9:
-                return "October"
-            case 10:
-                return "November"
-            case 11:
-                return "December"
-            default:
-                return "Error"
-        }
+        return  Calendar.current.monthSymbols[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
